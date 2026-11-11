@@ -1,0 +1,32 @@
+// ============================================================
+// CAMDO LUXURY — My profile
+// ============================================================
+
+.my-profile-page {
+    padding: clamp(20px, 4vw, 48px) 20px;
+
+    .profile-card {
+        background: #fffdfa;
+    }
+}
+
+.ant-form-item-label > label {
+    font-weight: 600;
+    color: #1b1714;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 768px) {
+    .my-profile-page .profile-card {
+        padding: 16px;
+    }
+
+    .ant-form-item {
+        margin-bottom: 12px;
+    }
+
+    .ant-avatar {
+        width: 80px !important;
+        height: 80px !important;
+    }
+}

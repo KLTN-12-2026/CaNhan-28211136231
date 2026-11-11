@@ -1,0 +1,262 @@
+// ============================================================
+// CAMDO LUXURY — Admin layout (dark sidebar)
+// ============================================================
+
+.lux-sider {
+    .ant-layout-sider-children {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ant-menu-dark {
+        background: transparent;
+    }
+
+    .ant-menu-item {
+        margin: 6px 12px;
+        width: calc(100% - 24px);
+        border-radius: 999px;
+        color: rgba(243, 237, 227, 0.66);
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        transition: all 0.3s var(--lux-ease);
+
+        &:hover {
+            color: #f3ede3;
+            background: rgba(216, 185, 120, 0.1);
+        }
+
+        &.ant-menu-item-selected {
+            background: linear-gradient(135deg, #d8b978, #b99256);
+            color: #14110f;
+            font-weight: 700;
+
+            .ant-menu-item-icon,
+            .ant-typography,
+            .ant-menu-title-content a {
+                color: #14110f !important;
+            }
+        }
+    }
+
+    .ant-layout-sider-trigger {
+        background: rgba(255, 255, 255, 0.03);
+        border-top: 1px solid rgba(185, 146, 86, 0.2);
+        color: rgba(243, 237, 227, 0.5);
+    }
+}
+
+.admin-layout {
+    min-height: 100vh;
+    transition: padding-left 0.2s;
+
+    .admin-sider {
+        box-shadow: 0px 10px 60px 0px rgba(20, 17, 15, 0.25);
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        z-index: 101;
+        overflow: hidden;
+
+        @media (max-width: 992px) {
+            display: none !important;
+        }
+
+        .sider-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .logo-section {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: padding 0.2s;
+
+            .logo-image {
+                height: 37px;
+            }
+
+            .logo-title {
+                margin-bottom: 0 !important;
+                white-space: nowrap;
+            }
+        }
+
+        .admin-menu {
+            border-inline-end: none !important;
+
+            .ant-menu-item {
+                margin: 6px 12px;
+                width: calc(100% - 24px);
+                display: flex;
+                align-items: center;
+
+                &:after {
+                    border-right: none;
+                }
+
+                &.ant-menu-item-selected {
+                    background-color: #b99256;
+                    color: #14110f;
+                    border-radius: 999px;
+
+                    .ant-menu-item-icon,
+                    .ant-typography,
+                    .ant-menu-title-content a {
+                        color: #14110f !important;
+                    }
+                }
+
+                .ant-menu-title-content {
+                    opacity: 1;
+                    transition:
+                        opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+                        margin 0.3s,
+                        color 0.3s;
+                }
+            }
+        }
+
+        .user-profile-section {
+            margin-top: auto;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition:
+                padding 0.2s,
+                justify-content 0.2s;
+
+            .user-info {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        &.ant-layout-sider-collapsed {
+            .logo-section {
+                padding: 20px 24px;
+            }
+
+            .admin-menu {
+                .ant-menu-item {
+                    padding-left: 24px !important;
+                    padding-right: 24px !important;
+                    width: 100%;
+                }
+
+                .ant-menu-title-content {
+                    max-width: 0;
+                    display: inline-block;
+                    opacity: 0;
+                }
+            }
+
+            .user-profile-section.user-profile-collapsed {
+                padding: 24px 20px;
+                justify-content: center;
+            }
+        }
+    }
+
+    .admin-main-layout {
+        margin-left: 250px;
+        transition: margin-left 0.2s;
+
+        .admin-layout-collapsed & {
+            margin-left: 80px;
+        }
+
+        @media (max-width: 992px) {
+            margin-left: 0 !important;
+        }
+    }
+
+    .admin-header {
+        background-color: #fffdfa !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 32px;
+        height: 68px;
+        box-shadow: 0 1px 4px rgba(20, 17, 15, 0.06);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+
+        .mobile-menu-icon,
+        .mobile-logo-section {
+            display: none;
+        }
+
+        .desktop-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            .search-input {
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            padding: 0 16px;
+
+            .desktop-header-content {
+                display: none;
+            }
+
+            .mobile-menu-icon {
+                display: inline-block !important;
+                font-size: 20px;
+                margin-right: 16px;
+            }
+
+            .mobile-logo-section {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .logo-image {
+                    height: 32px;
+                }
+
+                .logo-title {
+                    margin-bottom: 0 !important;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+
+    .admin-content {
+        background-color: #f7f3ec;
+        padding: 32px;
+        overflow: auto;
+        min-height: calc(100vh - 68px);
+
+        @media (max-width: 992px) {
+            padding: 24px;
+        }
+
+        @media (max-width: 767px) {
+            padding: 16px;
+        }
+    }
+
+    .mobile-drawer {
+        .ant-drawer-body {
+            padding: 0;
+        }
+
+        .ant-menu-inline {
+            border-right: none;
+        }
+    }
+}

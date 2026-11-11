@@ -1,0 +1,224 @@
+/* ============================================================
+   CAMDO LUXURY — HomePage
+   ============================================================ */
+
+.lux-home {
+    --hero-pad: clamp(56px, 8vw, 128px);
+}
+
+.lux-section {
+    padding: var(--hero-pad) clamp(20px, 5vw, 64px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.lux-section--dark {
+    background: linear-gradient(180deg, #1d1916 0%, #14110f 100%);
+    border-block: 1px solid rgba(185, 146, 86, 0.24);
+}
+
+/* ---------------- HERO ---------------- */
+.lux-hero {
+    position: relative;
+    background:
+        radial-gradient(1100px 620px at 78% -12%, rgba(185, 146, 86, 0.26), transparent 62%),
+        radial-gradient(720px 420px at 4% 108%, rgba(216, 185, 120, 0.12), transparent 60%),
+        linear-gradient(165deg, #201b17 0%, #14110f 58%, #100e0c 100%);
+    color: #f3ede3;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(185, 146, 86, 0.28);
+}
+
+.lux-hero__grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.32;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+}
+
+.lux-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: clamp(72px, 11vw, 148px) clamp(20px, 5vw, 64px) clamp(56px, 7vw, 96px);
+    display: flex;
+    justify-content: center;
+}
+
+.lux-hero__stats {
+    position: relative;
+    z-index: 1;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 64px) clamp(48px, 6vw, 76px);
+}
+
+.lux-stat {
+    padding: 26px 20px;
+    border-left: 1px solid rgba(216, 185, 120, 0.28);
+}
+
+.lux-stat:first-child {
+    border-left: none;
+}
+
+.lux-stat__value {
+    font-family: var(--lux-font-display);
+    font-size: clamp(30px, 3.6vw, 46px);
+    font-weight: 600;
+    color: #d8b978;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.lux-stat__label {
+    margin-top: 8px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(243, 237, 227, 0.5);
+    font-weight: 600;
+}
+
+/* ---------------- STEPS ---------------- */
+.lux-step {
+    position: relative;
+    height: 100%;
+    padding: 30px 26px 34px;
+    background: var(--lux-paper);
+    border: 1px solid var(--lux-line);
+    border-radius: 18px;
+    overflow: hidden;
+    transition:
+        transform 0.5s var(--lux-ease),
+        box-shadow 0.5s var(--lux-ease),
+        border-color 0.5s var(--lux-ease);
+}
+
+.lux-step:hover {
+    transform: translateY(-6px);
+    border-color: rgba(185, 146, 86, 0.5);
+    box-shadow: 0 28px 60px -32px rgba(20, 17, 15, 0.55);
+}
+
+.lux-step__index {
+    position: absolute;
+    top: 14px;
+    right: 22px;
+    font-family: var(--lux-font-display);
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(185, 146, 86, 0.16);
+    pointer-events: none;
+}
+
+.lux-step__media {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2ece1;
+    border: 1px solid rgba(185, 146, 86, 0.3);
+    margin-bottom: 20px;
+}
+
+.lux-step__media img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ---------------- ASSETS ---------------- */
+.lux-asset {
+    position: relative;
+    height: 100%;
+    padding: 30px 16px 26px;
+    border-radius: 18px;
+    border: 1px solid rgba(216, 185, 120, 0.18);
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    overflow: hidden;
+    transition:
+        transform 0.5s var(--lux-ease),
+        border-color 0.5s var(--lux-ease),
+        background 0.5s var(--lux-ease);
+}
+
+.lux-asset:hover {
+    transform: translateY(-5px);
+    border-color: rgba(216, 185, 120, 0.55);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.lux-asset__glow {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(216, 185, 120, 0.22), transparent 68%);
+    opacity: 0;
+    transition: opacity 0.5s var(--lux-ease);
+}
+
+.lux-asset:hover .lux-asset__glow {
+    opacity: 1;
+}
+
+.lux-asset img {
+    position: relative;
+    height: 62px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
+}
+
+.lux-asset .ant-typography {
+    position: relative;
+    color: rgba(243, 237, 227, 0.86);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+/* ---------------- CTA ---------------- */
+.lux-cta {
+    width: 100%;
+    max-width: 1000px;
+    padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 72px);
+    border-radius: 26px;
+    text-align: center;
+    background:
+        radial-gradient(700px 320px at 50% 0%, rgba(216, 185, 120, 0.22), transparent 68%),
+        linear-gradient(160deg, #221d19 0%, #14110f 100%);
+    border: 1px solid rgba(185, 146, 86, 0.34);
+    box-shadow: 0 40px 90px -50px rgba(20, 17, 15, 0.85);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 991px) {
+    .lux-stat {
+        border-left: none;
+        border-top: 1px solid rgba(216, 185, 120, 0.2);
+    }
+}
+
+@media (max-width: 575px) {
+    .lux-section {
+        padding-inline: 16px;
+    }
+}

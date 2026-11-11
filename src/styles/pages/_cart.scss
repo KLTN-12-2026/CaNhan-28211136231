@@ -1,0 +1,134 @@
+@use "../base/variables" as *;
+
+// ============================================================
+// CAMDO LUXURY — Cart page
+// ============================================================
+
+.cart-page-container {
+    padding: clamp(32px, 4vw, 56px) clamp(16px, 4vw, 48px);
+    max-width: 1240px;
+    margin: 0 auto;
+
+    .cart-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 24px;
+
+        .footer-select-all,
+        .footer-checkout {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+
+            .footer-checkout {
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+.cart-container {
+    padding: 20px;
+    background-color: $color-light;
+    min-height: 100vh;
+}
+
+.cart-item {
+    background: #fffdfa;
+    margin-bottom: 12px;
+    padding: 16px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(20, 17, 15, 0.07);
+    transition: all 0.3s;
+
+    &:hover {
+        box-shadow: 0 14px 34px -26px rgba(20, 17, 15, 0.5);
+    }
+}
+
+.item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-right: 16px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.item-price {
+    color: $color-text-dark;
+}
+
+.item-actions {
+    text-align: right;
+    min-width: 200px;
+}
+
+.total-item-price {
+    font-weight: 600;
+}
+
+.cart-footer {
+    position: sticky;
+    bottom: 0;
+    background: #fffdfa;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -8px 30px -22px rgba(20, 17, 15, 0.5);
+    border-top: 1px solid rgba(20, 17, 15, 0.08);
+    margin-top: 20px;
+    z-index: 10;
+}
+
+.btn-delete-text {
+    color: $color-danger;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-buy {
+    background-color: $color-primary !important;
+    border-color: $color-primary !important;
+    height: 45px;
+    padding: 0 40px;
+    font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-wrap: wrap;
+    }
+
+    .item-actions {
+        width: 100%;
+        text-align: left;
+        margin-top: 10px;
+        border-top: 1px solid rgba(20, 17, 15, 0.08);
+        padding-top: 10px;
+    }
+
+    .cart-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

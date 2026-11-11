@@ -1,0 +1,19 @@
+// ============================================================
+// CAMDO LUXURY — Product card hover effects
+// ============================================================
+
+.product-card-hover {
+    &:hover > div {
+        box-shadow: 0 26px 60px -32px rgba(20, 17, 15, 0.55) !important;
+        transform: translateY(-6px) !important;
+        border-color: rgba(185, 146, 86, 0.55) !important;
+
+        .product-card-img {
+            transform: scale(1.06);
+        }
+
+        .card-arrow {
+            transform: translateX(3px) !important;
+        }
+    }
+}

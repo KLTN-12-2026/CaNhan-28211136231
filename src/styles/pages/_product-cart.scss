@@ -1,0 +1,69 @@
+@use "../base/variables" as *;
+
+// ============================================================
+// CAMDO LUXURY — Product cart card
+// ============================================================
+
+.cart-page-container {
+    padding: 5rem 0;
+
+    .cart-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 24px;
+
+        .footer-select-all,
+        .footer-checkout {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+
+            .footer-checkout {
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+.product-cart-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #fffdfa;
+    border: 1px solid rgba(20, 17, 15, 0.08);
+    border-radius: 16px;
+    margin-bottom: 12px;
+    transition: all 0.3s var(--lux-ease);
+
+    &.selected {
+        border-color: rgba(185, 146, 86, 0.55);
+        box-shadow: 0 14px 34px -26px rgba(20, 17, 15, 0.5);
+    }
+
+    .product-image {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        border-radius: 12px;
+        background: #f2ece1;
+    }
+
+    .product-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .product-details {
+        text-align: right;
+    }
+}

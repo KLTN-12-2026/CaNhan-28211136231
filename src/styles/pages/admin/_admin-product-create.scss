@@ -1,0 +1,22 @@
+@use "../../base/variables" as *;
+
+// ============================================================
+// CAMDO LUXURY — Admin product create
+// ============================================================
+
+.create-product-page {
+    .form-card {
+        margin-bottom: 24px;
+        background-color: #fffdfa;
+        border: 1px solid rgba(20, 17, 15, 0.08);
+        border-radius: 16px;
+        box-shadow: 0 16px 44px -32px rgba(20, 17, 15, 0.5);
+    }
+
+    .action-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+        margin-top: 32px;
+    }
+}

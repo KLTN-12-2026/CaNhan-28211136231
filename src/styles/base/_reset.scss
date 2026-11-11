@@ -1,0 +1,36 @@
+// ============================================================
+// CAMDO LUXURY — Reset
+// ============================================================
+
+#root,
+.ant-app {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+h4 {
+    margin: 0;
+}
+
+ul.ant-list-items {
+    li {
+        padding: 0 !important;
+    }
+}
+
+.z-100 {
+    z-index: 100;
+}
+
+.ant-btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: inherit;
+}
+
+/* Ant Design dark menu refinement (admin sider) */
+.ant-menu-dark .ant-menu-item-selected {
+    background: linear-gradient(135deg, #d8b978, #b99256) !important;
+}

@@ -1,0 +1,54 @@
+@use "../../base/variables" as *;
+
+// ============================================================
+// CAMDO LUXURY — Admin customers
+// ============================================================
+
+.customers-page {
+    .stats-cards-customers {
+        margin-bottom: 24px;
+
+        .ant-card {
+            border: 1px solid rgba(20, 17, 15, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 16px 44px -32px rgba(20, 17, 15, 0.5);
+        }
+
+        .ant-statistic-content-prefix {
+            font-size: 22px;
+            padding: 8px;
+            border-radius: 50%;
+            background-color: rgba(185, 146, 86, 0.12);
+            color: $color-secondary;
+        }
+    }
+
+    .customers-table-card {
+        border-radius: 18px;
+        background-color: #fffdfa;
+        border: 1px solid rgba(20, 17, 15, 0.08);
+        box-shadow: 0 16px 44px -32px rgba(20, 17, 15, 0.5);
+
+        .table-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+        }
+
+        .ant-table-thead > tr > th {
+            background-color: #f2ece1;
+            color: #4b443c;
+        }
+
+        .ant-table-wrapper {
+            overflow-x: auto;
+        }
+    }
+}

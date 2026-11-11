@@ -1,0 +1,72 @@
+@use "../../base/variables" as *;
+
+// ============================================================
+// CAMDO LUXURY — Admin customer detail
+// ============================================================
+
+.user-detail-page {
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+
+    .detail-form-card,
+    .products-table-card {
+        margin-bottom: 24px;
+        background-color: #fffdfa;
+        border: 1px solid rgba(20, 17, 15, 0.08);
+        border-radius: 16px;
+        box-shadow: 0 16px 44px -32px rgba(20, 17, 15, 0.5);
+    }
+
+    .products-table-card {
+        border: none;
+
+        .ant-card-body {
+            padding: 0 !important;
+        }
+
+        .ant-table-thead > tr > th {
+            background-color: $color-gray;
+            color: #4b443c;
+            white-space: nowrap;
+        }
+
+        .ant-table-wrapper {
+            overflow-x: auto;
+        }
+    }
+
+    .user-profile-card {
+        text-align: center;
+        border-radius: 16px;
+        padding: 24px;
+        background-color: #fffdfa;
+        border: 1px solid rgba(20, 17, 15, 0.08);
+        box-shadow: 0 16px 44px -32px rgba(20, 17, 15, 0.5);
+
+        .profile-actions {
+            margin-top: 16px;
+        }
+
+        .profile-options {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        padding: 16px;
+
+        .detail-form-card,
+        .products-table-card,
+        .user-profile-card {
+            margin-bottom: 16px;
+        }
+    }
+}

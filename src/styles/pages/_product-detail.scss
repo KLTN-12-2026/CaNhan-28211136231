@@ -1,0 +1,165 @@
+@use "../base/variables" as *;
+
+// ============================================================
+// CAMDO LUXURY — Product detail
+// ============================================================
+
+.product-detail-page {
+    padding: clamp(20px, 3vw, 40px);
+    max-width: 1320px;
+    margin: auto;
+
+    .main-product-section {
+        margin-bottom: 32px;
+    }
+
+    .image-gallery {
+        display: flex;
+        gap: 16px;
+
+        @media (max-width: 768px) {
+            flex-direction: column-reverse;
+        }
+
+        .thumbnail-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            @media (max-width: 768px) {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .thumbnail-item {
+                width: 80px;
+                height: 80px;
+                border: 2px solid rgba(20, 17, 15, 0.1);
+                border-radius: 12px;
+                cursor: pointer;
+                overflow: hidden;
+                transition: border-color 0.3s;
+                flex-shrink: 0;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                &:hover {
+                    border-color: $color-primary;
+                }
+
+                &--active {
+                    border-color: $color-primary;
+                    box-shadow: 0 0 6px rgba(185, 146, 86, 0.5);
+                }
+
+                @media (max-width: 768px) {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+        }
+
+        .main-image-container {
+            flex: 1;
+            border: 1px solid rgba(20, 17, 15, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+
+            .main-image {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .product-info {
+        display: flex;
+        flex-direction: column;
+
+        .price-section {
+            margin: 16px 0;
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            flex-wrap: wrap;
+
+            .current-price {
+                font-size: 30px;
+                font-weight: 700;
+                color: $color-secondary;
+                font-family: var(--lux-font-display);
+            }
+
+            .original-price {
+                font-size: 18px;
+                color: $color-text-muted;
+            }
+        }
+
+        .quantity-section,
+        .description-section {
+            margin-bottom: 24px;
+        }
+
+        .description-section ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        .action-buttons {
+            margin-top: auto;
+
+            @media (max-width: 768px) {
+                margin-top: 24px;
+                width: 100%;
+            }
+
+            .btn-add-to-cart {
+                background-color: $color-primary;
+                color: $color-white;
+                border-color: $color-primary;
+
+                &:hover {
+                    background-color: $color-secondary;
+                    border-color: $color-secondary;
+                }
+            }
+
+            .btn-buy-now {
+                background-color: $color-dark;
+                color: $color-text-light;
+                border-color: $color-dark;
+
+                &:hover {
+                    background-color: $color-text-dark;
+                    border-color: $color-text-dark;
+                }
+            }
+        }
+    }
+
+    .related-products-section {
+        .ant-card-body {
+            padding: 12px;
+            text-align: center;
+        }
+
+        .ant-card-meta-title {
+            font-size: 14px;
+            margin-bottom: 4px !important;
+        }
+
+        .ant-card-meta-description {
+            font-size: 14px;
+            color: $color-secondary;
+            font-weight: 600;
+        }
+    }
+}
