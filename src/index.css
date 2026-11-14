@@ -1,0 +1,188 @@
+/* ============================================================
+   CAMDO LUXURY — Global Design System
+   Aesthetic: dark espresso + champagne gold, editorial luxury
+   ============================================================ */
+
+:root {
+    /* Brand palette */
+    --lux-ink: #14110f;
+    --lux-ink-2: #1d1916;
+    --lux-ink-3: #2a241f;
+    --lux-gold: #b99256;
+    --lux-gold-soft: #d8b978;
+    --lux-gold-deep: #8d6b36;
+    --lux-cream: #f7f3ec;
+    --lux-paper: #fffdfa;
+    --lux-line: rgba(20, 17, 15, 0.1);
+    --lux-line-strong: rgba(20, 17, 15, 0.18);
+
+    --lux-text: #1b1714;
+    --lux-text-soft: #6d6459;
+    --lux-text-inv: #f3ede3;
+    --lux-text-inv-soft: rgba(243, 237, 227, 0.62);
+
+    --lux-danger: #9a3b2f;
+    --lux-success: #4f7a52;
+
+    /* Typography */
+    --lux-font-display: "Playfair Display", "Times New Roman", serif;
+    --lux-font-body: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+
+    /* Motion */
+    --lux-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background: var(--lux-cream);
+    color: var(--lux-text);
+    font-family: var(--lux-font-body);
+    line-height: 1.6;
+}
+
+body {
+    background-image:
+        radial-gradient(1100px 520px at 82% -8%, rgba(185, 146, 86, 0.14), transparent 62%),
+        radial-gradient(900px 480px at 6% 4%, rgba(20, 17, 15, 0.05), transparent 60%);
+    background-attachment: fixed;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--lux-font-display);
+    letter-spacing: -0.015em;
+    color: var(--lux-text);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---------- Ant Design overrides ---------- */
+.ant-typography {
+    font-family: var(--lux-font-body);
+}
+
+.ant-btn {
+    font-family: var(--lux-font-body);
+    letter-spacing: 0.02em;
+}
+
+.ant-btn-primary {
+    box-shadow: none;
+}
+
+.ant-card {
+    border-color: var(--lux-line);
+}
+
+/* ---------- Luxury surfaces ---------- */
+.lux-card {
+    background: var(--lux-paper);
+    border: 1px solid var(--lux-line);
+    border-radius: 18px;
+    box-shadow: 0 18px 50px -28px rgba(20, 17, 15, 0.45);
+}
+
+.lux-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--lux-gold-deep);
+}
+
+.lux-eyebrow--inv {
+    color: var(--lux-gold-soft);
+}
+
+.lux-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--lux-gold), transparent);
+    opacity: 0.45;
+}
+
+/* ---------- Motion ---------- */
+@keyframes luxFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes luxFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.lux-reveal {
+    opacity: 0;
+    animation: luxFadeUp 0.9s var(--lux-ease) forwards;
+}
+
+.lux-reveal-1 {
+    animation-delay: 0.05s;
+}
+.lux-reveal-2 {
+    animation-delay: 0.16s;
+}
+.lux-reveal-3 {
+    animation-delay: 0.27s;
+}
+.lux-reveal-4 {
+    animation-delay: 0.38s;
+}
+.lux-reveal-5 {
+    animation-delay: 0.49s;
+}
+.lux-reveal-6 {
+    animation-delay: 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lux-reveal {
+        opacity: 1;
+        animation: none;
+    }
+}
+
+/* ---------- Legacy hover hooks ---------- */
+.product-card-hover:hover > div {
+    transform: translateY(-8px);
+    box-shadow: 0 26px 60px -30px rgba(20, 17, 15, 0.55) !important;
+    border-color: rgba(185, 146, 86, 0.55) !important;
+}
+
+.product-card-hover:hover img {
+    transform: scale(1.08);
+}

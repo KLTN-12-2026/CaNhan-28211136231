@@ -1,0 +1,33 @@
+import productsApi from "@/api/productsApi";
+import { Product } from "@/type/product.type";
+import { useQuery } from "@tanstack/react-query";
+
+export const useProduct = (id: number) => {
+    return useQuery<Product>({
+        queryKey: ["product", id],
+        queryFn: () => productsApi.getById(id),
+        staleTime: 1000 * 60 * 5,
+        retry: 1
+    });
+};
+
+export const useRelatedProducts = (id: number, page: number = 1, size: number = 5) => {
+    return useQuery({
+        queryKey: ["related-products", id, page, size],
+        queryFn: () => productsApi.getRelated(id, page, size),
+        enabled: !!id,
+        staleTime: 1000 * 60 * 5
+    });
+};
+
+export const useGetActiveProducts = (page: number = 0, size: number = 5) => {
+    return useQuery({
+        queryKey: ["active-products", page, size],
+        queryFn: () =>
+            productsApi.search({
+                page,
+                size
+            }),
+        staleTime: 1000 * 60 * 5
+    });
+};

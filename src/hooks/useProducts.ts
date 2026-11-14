@@ -1,0 +1,52 @@
+import productsApi from "@/api/productsApi";
+import { Page } from "@/type/page.type";
+import { Product } from "@/type/product.type";
+import { useQuery } from "@tanstack/react-query";
+
+const PRODUCTS_QUERY_KEY = ["products"];
+
+export const useProducts = (query?: {
+    page?: number;
+    size?: number;
+    name?: string;
+    categoryIds?: number[];
+    status?: string;
+    customerId?: number;
+}) => {
+    const { data, isFetching, isError, error, refetch } = useQuery<Page<Product>>({
+        queryKey: [PRODUCTS_QUERY_KEY, query],
+        queryFn: () =>
+            productsApi.search({
+                page: query?.page ?? 1,
+                size: query?.size ?? 15,
+                name: query?.name,
+                categoryIds: query?.categoryIds,
+                status: query?.status,
+                customerId: query?.customerId
+            }),
+        enabled: query?.customerId !== undefined ? !isNaN(query.customerId) : true
+    });
+
+    return {
+        productsPage: data,
+        isLoading: isFetching,
+        isError,
+        error,
+        refetch
+    };
+};
+
+export const useMyProducts = () => {
+    const { data, isFetching, isError, error, refetch } = useQuery<Product[]>({
+        queryKey: ["my-products"],
+        queryFn: () => productsApi.getMyProducts()
+    });
+
+    return {
+        products: data ?? [],
+        isLoading: isFetching,
+        isError,
+        error,
+        refetch
+    };
+};
